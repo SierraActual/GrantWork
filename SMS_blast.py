@@ -9,10 +9,6 @@ from sendgrid.helpers.mail import Mail
 #TODO think about adding time delay so we don't hit servers super hard all at once
 #TODO need to test on large random number set with myself and Grant on the bottom to see if there's droppage or spam detection
 
-msg1 = 'Hey, this is Grant with the Breathe Oxygen Bar. I just tried calling you about the sales position you applied for.'
-msg2 = 'Please call back at your nearest convenience, or simply pick the time/location you\'d like to schedule an interview with this link:'
-msg3 = 'https://calendy.com/breatheoxygen/harmon-corner-interview\n(You may need to respond to this message for the link to appear)'
-msg4 = 'Thanks!\nGrant Barnes\n865.321.2915\nhttps://breatheoxygenbar.com/'
 
 NUMBERS = [
     '9199248442' 
@@ -27,7 +23,17 @@ CARRIER_MAP = {
     "uscellular": "email.uscc.net",
 }
 
-def main(msg):
+
+def create_message():
+    msg1 = 'Hey, this is Grant with the Breathe Oxygen Bar. I just tried calling you about the sales position you applied for.'
+    msg2 = 'Please call back at your nearest convenience, or simply pick the time/location you\'d like to schedule an interview with this link:'
+    msg3 = 'https://calendy.com/breatheoxygen/harmon-corner-interview\n(You may need to respond to this message for the link to appear)'
+    msg4 = 'Thanks!\nGrant Barnes\n865.321.2915\nhttps://breatheoxygenbar.com/'
+    message = [msg1, msg2, msg3, msg4]
+    return message
+
+
+def send_texts(message):
     for number in range(len(NUMBERS)):
         for carrier in CARRIER_MAP:
             SENDGRID_API_KEY = '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'
@@ -48,7 +54,10 @@ def main(msg):
             except Exception as e:
                 print(f"Error: {e}")
 
-main(msg1)
-main(msg2)
-main(msg3)
-main(msg4)
+def main():
+    message = create_message()
+    send_texts(message)
+
+
+if __name__ == "__main__":
+    main()
