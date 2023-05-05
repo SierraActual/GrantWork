@@ -16,7 +16,7 @@ msg4 = 'Thanks!\nGrant Barnes\n865.321.2915\nhttps://breatheoxygenbar.com/'
 
 NUMBERS = [
     '9199248442' 
-]7
+]
 CARRIER_MAP = {
     "verizon": "vtext.com",
     "tmobile": "tmomail.net",
