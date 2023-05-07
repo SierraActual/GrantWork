@@ -3,22 +3,21 @@ import time
 import csv
 
 message1 = 'Hey'
-
 message2 = ', this is Grant with the Breathe Oxygen Bar. I just tried calling you \
     about the sales position you applied for. Please call back at your nearest convenience, \
     or simply pick the time/location you\'d like to schedule an interview with this link: \
     https://calendy.com/breatheoxygen/harmon-corner-interview\n(You may need to respond to \
     this message for the link to appear) Thanks!\n\nGrant Barnes\n865.321.2915\nhttps://breatheoxygenbar.com/'
 
-print(message1 + ' Chris' + message2)
+csv_file_path = '/home/chris/Documents/Code/GrantWork/GrantCSV.csv'  #TODO Replace with the path to your CSV file
+
 
 def get_names_numbers():
     # Open and read our CSV to store names and numbers
-    csv_file = '/home/chris/Documents/Code/GrantWork/GrantCSV.csv'  #TODO Replace with the path to your CSV file
     NAMES_AND_NUMBERS = [] 
 
     #TODO edit to read NAMES and NUMBERS properly
-    with open(csv_file, 'r') as file:
+    with open(csv_file_path, 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             if row:  # Skip empty rows
@@ -32,7 +31,7 @@ def get_names_numbers():
 
 
 def send_text(name, number):
-    print(f"[+] Sending message to {number}...")
+    logging.info(f"[+] Sending message to {number}...")
 
     try:
         #TODO write code to minimize terminal
@@ -96,15 +95,9 @@ def main():
 
     #Launch timer
     print('Launching in 5...')
-    time.sleep(1)
-    print('4...')
-    time.sleep(1)
-    print('3...')
-    time.sleep(1)
-    print('2...')
-    time.sleep(1)
-    print('1...')
-    time.sleep(1)
+    for i in range(4, 0, -1):
+        time.sleep(1)
+        print(f'{i}...')
 
     # Start texting all numbers in csv
     print('[+] Beggining text sequence. Do not touch computer until complete...')
