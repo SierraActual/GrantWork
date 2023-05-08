@@ -34,16 +34,16 @@ def get_names_numbers():
 
 
 def test_text():
-    cont = input("The following function will test to ensure you are set up correctly. Continue? (y/n) ")
+    cont = input("[?] The following function will test to ensure you are set up correctly. Continue? (y/n) ")
     # Exits if user does not wish to perform test
     if cont != ('y' or 'Y'):
         return
     # Sends a text message to the user's own number as defined by global variables at start.
     send_text(TESTNAME, TESTNUMBER)
     # Check to ensure it worked properly. Exit if user indicates it did not.
-    didWork = input('Did the test message send the sample message to your own number? (y/n) ')
+    didWork = input('[?] Did the test message send the sample message to your own number? (y/n) ')
     if didWork != ('y' or 'Y'):
-        exit('Please ensure all other windows are closed and iMessage is maximized. Exiting...')
+        exit('[-] Please ensure all other windows are closed and iMessage is maximized. Exiting...')
     return True
 
 
@@ -78,12 +78,12 @@ def send_text(name, number):
 
 
 def main():
-    windows = input('Have you made sure the only window open is iMessage? (y/n) ')
+    windows = input('[?] Have you made sure the only window open is iMessage? (y/n) ')
     if windows != ('y' or 'Y'):
-        exit('Please close all windows other than iMessage. Exiting...')
-    full = input('Is iMessage currently running at fullscreen behind this terminal window? (y/n) ')
+        exit('[-] Please close all windows other than iMessage. Exiting...')
+    full = input('[?] Is iMessage currently running at fullscreen behind this terminal window? (y/n) ')
     if full !=('y' or 'Y'):
-        exit('Please ensure iMessage is running at fullscreen behind this terminal. Exiting...')
+        exit('[-] Please ensure iMessage is running at fullscreen behind this terminal. Exiting...')
 
     test_text()
 
@@ -91,7 +91,6 @@ def main():
     print("[+] Reading CSV to gather names and numbers...")
     try:
         people = get_names_numbers()
-        print(people)
     except:
         print("[-] Unable to read and extract from CSV file. Exiting...")
         exit()
@@ -104,15 +103,15 @@ def main():
     for row in people:
         counter += 1
     counter = counter * 3 / 60
-    timeEst = input(f"Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)")
+    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)")
     if timeEst != ('y' or 'Y'):
-        exit('User indicated time not optimal. Exiting...')
+        exit('[-] User indicated time not optimal. Exiting...')
 
     #Launch timer
-    print('Launching in 5...')
+    print('[+] Launching in 5...')
     for i in range(4, 0, -1):
         time.sleep(1)
-        print(f'{i}...')
+        print(f'[+] {i}...')
 
     # Start texting all numbers in csv
     print('[+] Beggining text sequence. Do not touch computer until complete...')
