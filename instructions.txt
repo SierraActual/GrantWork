@@ -1,0 +1,6 @@
+open a terminal (search terminal using search icon at top)
+
+type "cd /Users/grantbarnes/Documents/GrantWork"
+    (can copy and paste it; leave out quotation marks)
+
+type 

@@ -5,9 +5,9 @@ def test_func():
         exit('This worked')
 
 def main():
-    print('testing')
-    test_func()
-    print('Did not work.')
-
+    pyautogui.keyDown('command')
+    pyautogui.keyDown('m')
+    pyautogui.keyUp('command')
+    pyautogui.keyUp('m')
 if __name__ == '__main__':
     main()
