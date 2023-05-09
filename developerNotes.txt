@@ -1,2 +1,14 @@
-command to determine mouse location:
-    command + shift + 4
+TIPS:
+- command to determine mouse location:
+    - command + shift + 4
+
+TODO:
+- Need to test functionality when:
+    - Getting a text during
+    - Getting an iMessage during
+    - Getting a call during
+    - Getting a facetime during
+    - Attemping to text during
+    - Attempting to call during
+    
+    - If any issues see if DND on phone or computer helps
