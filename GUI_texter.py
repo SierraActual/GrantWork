@@ -16,12 +16,12 @@ TESTNAME = 'USER_NAME_WILL_GO_HERE' #TODO Change if you want. This is jut the na
 TESTNUMBER = '8653212915' #TODO Insert your own phone number here for when we do the initial test.
 
 
-def get_names_numbers():
+def get_names_numbers(csv):
     # Open and read our CSV to store names and numbers
     NAMES_AND_NUMBERS = [] 
 
     #TODO edit to read NAMES and NUMBERS properly
-    with open(csv_file_path, 'r') as file:
+    with open(csv, 'r') as file:
         reader = csv.reader(file)
         for row in reader:
             if row:  # Skip empty rows
@@ -86,6 +86,7 @@ def send_text(name, number):
         time.sleep(1)
 
     except:
+        alt_tab()
         exit(f"[-] Failed to send text to {number}. Exiting...")
 
     print(f"[+] Message successfully sent to {number}.")
@@ -132,7 +133,7 @@ def main():
     # Generate a list name/number combos for use in send_text
     print("[+] Reading CSV to gather names and numbers...")
     try:
-        people = get_names_numbers()
+        people = get_names_numbers(csv_file_path)
     except:
         print("[-] Unable to read and extract from CSV file. Exiting...")
         exit()
