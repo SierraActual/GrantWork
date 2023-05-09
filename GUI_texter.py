@@ -3,7 +3,7 @@ import time
 import csv
 
 message1 = 'Hey'
-message2 = ", this is Grant with the Breathe Oxygen Bar. I just tried calling you about the sales position you applied for. Please call back at your nearest convenience, or simply pick the time/location you'd like to schedule an interview with this link: https://calendy.com/breatheoxygen/harmon-corner-interview (You may need to respond to this message for the link to appear)"
+message2 = ", this is Grant with the Breathe Oxygen Bar. I just tried calling you about the sales position you applied for. Please call back at your nearest convenience, or simply pick the time/location you'd like to schedule an interview with this link: https://calendly.com/breatheoxygen/zoom-interview (You may need to respond to this message for the link to appear)"
 message3 = "Thanks!" 
 message4 = "Grant Barnes"
 message5 = "865.321.2915"
@@ -126,7 +126,7 @@ def main():
     for row in people:
         counter += 1
     counter = counter * 17 / 60
-    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)")
+    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)  ")
     if timeEst != ('y' or 'Y'):
         exit('[-] User indicated time not optimal. Exiting...')
 
@@ -135,6 +135,7 @@ def main():
     for i in range(4, 0, -1):
         time.sleep(1)
         print(f'[+] {i}...')
+    time.sleep(1)
 
     print('[+] Beggining text sequence. Do not touch computer until complete...')
     # Tab out of terminal

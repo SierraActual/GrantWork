@@ -1,6 +1,26 @@
-open a terminal (search terminal using search icon at top)
+*****IMPORTANT******
+If anything is going wrong with the program, click the terminal icon at bottom
+of screen (looks like black square with >_ inside) and press crtl+c. This
+will exit program immediately!
 
-type "cd /Users/grantbarnes/Documents/GrantWork"
+1. ensure .csv file is loaded into folder (/Users/grantbarnes/Documents/GrantWork/)
+
+2. name that .csv file "CSV-LOADER.csv" exactly
+    overwrite old one if prompted
+
+3. close all windows except iMessage and a terminal (search for "terminal" and it will pop up)
+
+4. open the terminal
+
+5. type "cd /Users/grantbarnes/Documents/GrantWork"
     (can copy and paste it; leave out quotation marks)
 
-type 
+6. type "python3 GUI_texter.py"
+    (can copy and paste it; leave out quotation marks)
+
+7. Follow on-screen prompts
+
+*****IMPORTANT******
+If anything is going wrong with the program, click the terminal icon at bottom
+of screen (looks like black square with >_ inside) and press crtl+c. This
+will exit program immediately!

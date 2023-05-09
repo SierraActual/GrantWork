@@ -1,0 +1,2 @@
+command to determine mouse location:
+    command + shift + 4
