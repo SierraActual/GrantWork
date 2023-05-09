@@ -2,6 +2,7 @@ import pyautogui
 import time
 import csv
 
+# Preset variables below. Change as needed.
 message1 = 'Hey'
 message2 = ", this is Grant with the Breathe Oxygen Bar. I just tried calling you about the sales position you applied for. Please call back at your nearest convenience, or simply pick the time/location you'd like to schedule an interview with this link: https://calendly.com/breatheoxygen/zoom-interview (You may need to respond to this message for the link to appear)"
 message3 = "Thanks!" 
@@ -34,25 +35,18 @@ def get_names_numbers():
 
 
 def test_text():
-    cont = input("[?] The following function will test to ensure you are set up correctly. Continue? (y/n) ")
+    cont = input("[?] The following function will test to ensure you are set up correctly. Continue? (y/n) ").strip()
     # Exits if user does not wish to perform test
     if cont != ('y' or 'Y'):
         return
     time.sleep(1)
     # Minimize terminal
-    pyautogui.keyDown('command')
-    pyautogui.keyDown('tab')
-    pyautogui.keyUp('command')
-    pyautogui.keyUp('tab')
+    alt_tab()
     # Sends a text message to the user's own number as defined by global variables at start.
     send_text(TESTNAME, TESTNUMBER)
-    pyautogui.keyDown('command')
-    pyautogui.keyDown('tab')
-    time.sleep(.5)
-    pyautogui.keyUp('command')
-    pyautogui.keyUp('tab')
+    alt_tab()
     # Check to ensure it worked properly. Exit if user indicates it did not.
-    didWork = input('[?] Did the test message send the sample message to your own number? (y/n) ')
+    didWork = input('[?] Did the test message send the sample message to your own number? (y/n) ').strip()
     if didWork != ('y' or 'Y'):
         exit('[-] Please ensure all other windows are closed and iMessage is maximized. Exiting...')
     return True
@@ -97,17 +91,42 @@ def send_text(name, number):
     print(f"[+] Message successfully sent to {number}.")
 
 
-def main():
-    windows = input('[?] Have you made sure the only window open is iMessage? (y/n) ')
+def setup_prompts():
+    windows = input('[?] Have you made sure the only window open is iMessage? (y/n) ').strip()
     if windows != ('y' or 'Y'):
         exit('[-] Please close all windows other than iMessage. Exiting...')
-    full = input('[?] Is iMessage currently running at fullscreen behind this terminal window? (y/n) ')
+    full = input('[?] Is iMessage currently running at fullscreen behind this terminal window? (y/n) ').strip()
     if full !=('y' or 'Y'):
         exit('[-] Please ensure iMessage is running at fullscreen behind this terminal. Exiting...')
-    tabFix = input('[?] Please click on the iMessage window, then reopen this terminal (command+tab). (When complete enter "y")  ')
+    tabFix = input('[?] Please click on the iMessage window, then reopen this terminal (command+tab). (When complete enter "y")  ').strip()
     if tabFix != ('y' or 'Y'):
         exit('[-] You must ensure you click on the iMessage window, then back to terminal, then type "y". Exiting...')
 
+
+def time_prompt():
+    counter = 0
+    for row in people:
+        counter += 1
+    counter = counter * 17 / 60
+    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)  ").strip()
+    if timeEst != ('y' or 'Y'):
+        exit('[-] User indicated time not optimal. Exiting...')
+
+
+def alt_tab():
+    # Literally performs the alt + tab function.
+    pyautogui.keyDown('command')
+    pyautogui.keyDown('tab')
+    time.sleep(.5)
+    pyautogui.keyUp('command')
+    pyautogui.keyUp('tab')
+
+
+def main():
+    # Prompt user about setup
+    setup_prompts()
+
+    # Send a test text if the user chooses to
     test_text()
 
     # Generate a list name/number combos for use in send_text
@@ -122,13 +141,7 @@ def main():
     print("[+] Successfully read CSV and gathered info.")
 
     # Ask user if time is okay
-    counter = 0
-    for row in people:
-        counter += 1
-    counter = counter * 17 / 60
-    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)  ")
-    if timeEst != ('y' or 'Y'):
-        exit('[-] User indicated time not optimal. Exiting...')
+    time_prompt()
 
     #Launch timer
     print('[+] Launching in 5...')
@@ -140,11 +153,7 @@ def main():
     print('[+] Beggining text sequence. Do not touch computer until complete...')
     # Tab out of terminal
     time.sleep(2)
-    pyautogui.keyDown('command')
-    pyautogui.keyDown('tab')
-    time.sleep(.5)
-    pyautogui.keyUp('command')
-    pyautogui.keyUp('tab')
+    alt_tab()
 
     # Start texting all numbers in csv
     for person in people:
@@ -152,11 +161,7 @@ def main():
 
     # Tab back into terminal
     time.sleep(1)
-    pyautogui.keyDown('command')
-    pyautogui.keyDown('tab')
-    time.sleep(.5)
-    pyautogui.keyUp('command')
-    pyautogui.keyUp('tab')
+    alt_tab
     
     # Success message
     print("[+] Successfully texted all numbers from list.")
