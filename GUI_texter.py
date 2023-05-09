@@ -103,7 +103,7 @@ def setup_prompts():
         exit('[-] You must ensure you click on the iMessage window, then back to terminal, then type "y". Exiting...')
 
 
-def time_prompt():
+def time_prompt(people):
     counter = 0
     for row in people:
         counter += 1
@@ -141,7 +141,7 @@ def main():
     print("[+] Successfully read CSV and gathered info.")
 
     # Ask user if time is okay
-    time_prompt()
+    time_prompt(people)
 
     #Launch timer
     print('[+] Launching in 5...')
