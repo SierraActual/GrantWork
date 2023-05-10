@@ -35,10 +35,6 @@ def get_names_numbers(my_csv):
 
 
 def test_text():
-    cont = input("[?] The following function will test to ensure you are set up correctly. Continue? (y/n) ").strip()
-    # Exits if user does not wish to perform test
-    if cont != ('y' or 'Y'):
-        return
     time.sleep(1)
     # Minimize terminal
     alt_tab()
@@ -46,9 +42,6 @@ def test_text():
     send_text(TESTNAME, TESTNUMBER)
     alt_tab()
     # Check to ensure it worked properly. Exit if user indicates it did not.
-    didWork = input('[?] Did the test message send the sample message to your own number? (y/n) ').strip()
-    if didWork != ('y' or 'Y'):
-        exit('[-] Please ensure all other windows are closed and iMessage is maximized. Exiting...')
     return True
 
 
@@ -157,12 +150,12 @@ def main():
     alt_tab()
 
     # Start texting all numbers in csv
-    for person in people:
-        send_text(person[0], person[1])
+    for i in range(10000):
+        test_text()
 
     # Tab back into terminal
     time.sleep(1)
-    alt_tab()
+    alt_tab
     
     # Success message
     print("[+] Successfully texted all numbers from list.")
