@@ -3,12 +3,5 @@ TIPS:
     - command + shift + 4
 
 TODO:
-- Need to test functionality when:
-    - Getting a text during
-    - Getting an iMessage during
-    - Getting a call during
-    - Getting a facetime during
-    - Attemping to text during
-    - Attempting to call during
-    
-    - If any issues see if DND on phone or computer helps
+- Maybe make a small program to just enter the terminal commands for grant so he doesn't have to follow the guide.
+- Consider a pdf reader in the future to maybe elimiate the assistants.
