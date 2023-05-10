@@ -3,20 +3,36 @@ If anything is going wrong with the program, click the terminal icon at bottom
 of screen (looks like black square with >_ inside) and press crtl+c. This
 will exit program immediately!
 
-1. ensure .csv file is loaded into folder (/Users/grantbarnes/Documents/GrantWork/)
+Optional:
+    - Open "VS Code" application
+    - click the file icon in the top left (if necessary)
+    - click open folder
+    - navigate to the folder with your csv files and the program (/users/grantbarnes/Documents/GrantWork/)
+    - open GUI_texter.py
+    - edit any of the variables at the top as needed. Be careful with this and make sure you don't touch any other Code
+    - save the file (command + s) and exit VS code
 
-2. name that .csv file "CSV-LOADER.csv" exactly
-    overwrite old one if prompted
+1. Ensure .csv file is loaded into folder (/Users/grantbarnes/Documents/GrantWork/)
+    - Download the excel page you want to use from your google drive
+    - Recommend making any edits you need on the drive before downloading
+        (e.g. removing already sent names, combining datasets, etc.)
+        - This will be harder to do once the file is already downloaded
+    - Rename the now downloaded file to "GrantCSV.csv"
+        - DONT FORGET TO MAKE IT .CSV THE FIRST TIME. IF YOU FORGET, REDOWNLOAD.
+    - Move this file to the "GrantWork" folder and overwrite the old one if necessary
+    
 
-3. close all windows except iMessage and a terminal (search for "terminal" and it will pop up)
+2. Close all windows except iMessage and a terminal (search for "terminal" and it will pop up)
+    a. Also a good practice to close all background programs that could interfere
 
-4. open the terminal
+3. Open the terminal
 
-5. type "cd /Users/grantbarnes/Documents/GrantWork"
-    (can copy and paste it; leave out quotation marks)
+5. Type "cd /Users/grantbarnes/Documents/GrantWork/" (or a different path if you moved this folder)
+    a. (can copy and paste it; leave out quotation marks)
 
-6. type "python3 GUI_texter.py"
-    (can copy and paste it; leave out quotation marks)
+6. Type "python3 GUI_texter.py"
+    a. (can copy and paste it; leave out quotation marks)
+    b. This will start the texter program.
 
 7. Follow on-screen prompts
 
