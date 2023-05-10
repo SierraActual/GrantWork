@@ -109,7 +109,7 @@ def time_prompt(people):
     for row in people:
         counter += 1
     counter = counter * 17 / 60
-    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. Do you wish to continue? (y/n)  ").strip()
+    timeEst = input(f"[?] Estimated time to complete your project is {counter} minutes. During this time you may not touch your computer. Do you wish to continue? (y/n)  ").strip()
     if timeEst != ('y' or 'Y'):
         exit('[-] User indicated time not optimal. Exiting...')
 
