@@ -159,6 +159,8 @@ def main():
     alt_tab()
 
     # Start texting all numbers in csv
+    # Ensures that name isn't blank and that numbers are just 10digit numbers
+        #also added error storage that will print at the end if needed
     for person in people:
         pattern = r'^\d{10}$'
         if (person[0].strip() == '') or (re.match(pattern, person[1]) == False):
