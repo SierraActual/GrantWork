@@ -1,6 +1,7 @@
 import pyautogui
 import time
 import csv
+import re
 
 # Preset variables below. Change as needed.
 message1 = 'Hey'
@@ -124,6 +125,7 @@ def alt_tab():
 
 
 def main():
+    errors = []
     # Prompt user about setup
     setup_prompts()
 
@@ -158,6 +160,10 @@ def main():
 
     # Start texting all numbers in csv
     for person in people:
+        pattern = r'^\d{10}$'
+        if (person[0].strip() == '') or (re.match(pattern, person[1]) == False):
+            errors.append(f'{person[0]}')
+            continue
         send_text(person[0], person[1])
 
     # Tab back into terminal
@@ -165,7 +171,15 @@ def main():
     alt_tab()
     
     # Success message
-    print("[+] Successfully texted all numbers from list.")
+    print("[+] Successfully texted all working numbers from list.")
+
+    #error handler
+    if len(errors) > 0:
+        print('[-] The following names were unable to be texted due to errors in number input:')
+        for person in errors:
+            print(f'{person}')
+
+
 
 
 if __name__ == "__main__":
